@@ -22,7 +22,7 @@ $scriptClient = <<-SCRIPTCLIENT
   echo 'if \$programname == "borg" then /var/log/borg' | sudo tee /etc/rsyslog.d/borg.conf
   systemctl restart rsyslog
   touch /etc/logrotate.d/borg.conf
-  echo -e '/var/log/borg {\n  hourly\n  rotate 3\n  size 10K\n  compress\n  delaycompress\n}' > /etc/logrotate.d/borg.conf
+  echo -e '/var/log/borg {\n  hourly\n  rotate 3\n  size 2K\n  compress\n  delaycompress\n}' > /etc/logrotate.d/borg.conf
   systemctl daemon-reload
   systemctl enable borg-backup.service borg-backup.timer
   systemctl start borg-backup.service
